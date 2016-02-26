@@ -15,18 +15,20 @@ int main(int argc, char*argv[]){
 	vector<persona> amigos;
 
 	initscr();
+	start_color();
 	getmaxyx(stdscr, x, y);
+	init_pair(5,COLOR_MAGENTA,COLOR_BLACK);
+	attron(COLOR_PAIR(5));
 	move((x/2),( y/2)-16);
 	printw("Bienvenido a tu agenda de amigos");
 	move((x/2)+1,( y/2)-16);
 	printw("Laboratorio 5 de Programacion3");
-	
+	attroff(COLOR_PAIR(5));
 
 	while(seguir){
 		
 		if(getch()){
 			clear();
-			start_color();
 			init_pair(1, COLOR_RED, COLOR_BLACK);
 			getmaxyx(stdscr, x, y);
 			attron(COLOR_PAIR(1));
@@ -45,6 +47,8 @@ int main(int argc, char*argv[]){
 			
 			if(opcion=='1'){
                         	clear();
+				init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+				attron(COLOR_PAIR(3));
                         	move((x/2)-4,( y/2)-16);
                         	printw("Nombre del Amigo: ");
 				
@@ -61,14 +65,21 @@ int main(int argc, char*argv[]){
 				contador=0; 	
                         	move((x/2)-3,( y/2)-17);
                         	printw("Numero del amigo: ");
-					
 			        getstr(numero);
-					
-					
-				
+				attroff(COLOR_PAIR(3));
 				contador = 0;
 				persona person(nombre, numero);
 				amigos.push_back(person);
+				while(contador<25){
+					nombre[contador] = '\0';
+					contador++;
+				}
+				contador=0;
+				while(contador<9){
+                                        numero[contador] = '\0';
+                                        contador++;
+                                }
+                                contador=0;
 			}else if(opcion=='3'){
 				clear();
 				refresh();
@@ -91,8 +102,8 @@ int main(int argc, char*argv[]){
 				printw("\n");
 				attroff(COLOR_PAIR(2));
 			    for(int i = 0; i < amigos.size(); i++){
-			    	init_pair(4,COLOR_BLUE,COLOR_BLACK);
-					attron(COLOR_PAIR(4));			    	
+			    	    init_pair(4,COLOR_BLUE,COLOR_BLACK);
+				    attron(COLOR_PAIR(4));			    	
 			    	    move(y+1+i,(x/2));
 				    printw(amigos[i].getNombre());
 				    printw("--------------");
