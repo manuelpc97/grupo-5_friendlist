@@ -61,6 +61,8 @@ int main(int argc, char*argv[]){
 					}else{
 						noecho();
 					}
+						
+					
 					
 				} 
 				echo();
@@ -85,7 +87,8 @@ int main(int argc, char*argv[]){
                         			noecho();
                         		}
                         	}
-                             contador=0;
+				echo();
+                                contador=0;
                         	while(contador<9){
                         		numero[contador]=temporal[contador];
                         		contador++;
