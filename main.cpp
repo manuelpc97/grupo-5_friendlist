@@ -45,6 +45,7 @@ int main(int argc, char*argv[]){
 			getstr(nombre);
 			move((x/2)-3,( y/2)-16);
 			printw("Numero del amigo: ");
+			getstr(numero);
 		}
 	}
 
