@@ -76,22 +76,30 @@ int main(int argc, char*argv[]){
 				seguir = false;
 			}else if(opcion=='2'){
 				clear();
+				init_pair(5,COLOR_MAGENTA,COLOR_BLACK);
+				attron(COLOR_PAIR(5));
+				printw("------------Amigos-----------");
+				printw("\n");
+				attroff(COLOR_PAIR(5));
 				init_pair(2,COLOR_GREEN,COLOR_BLACK);
 				attron(COLOR_PAIR(2));
 				getmaxyx(stdscr,y,x);
 				move(y,(x/2));
-				printw("Nombre ");
+				printw("Nombre --------------");
 				move(y,(x/2)+10);
 				printw("Numero ");
 				printw("\n");
 				attroff(COLOR_PAIR(2));
 			    for(int i = 0; i < amigos.size(); i++){
+			    	init_pair(4,COLOR_BLUE,COLOR_BLACK);
+					attron(COLOR_PAIR(4));			    	
 			    	    move(y+1+i,(x/2));
 				    printw(amigos[i].getNombre());
-				    printw(" ");
+				    printw("--------------");
 				    move(y+1+i,(x/2)+10);
 				    printw(amigos[i].getNumero());
 				    printw("\n");
+				    attroff(COLOR_PAIR(4));
 			    }
 
 
