@@ -10,8 +10,9 @@ int main(int argc, char*argv[]){
 	bool seguir = true;
 	int x, y;
 	char nombre[25]; 
-	char numero[9];
+	char numero[10];
 	char opcion;
+	char temporal[10];
 	vector<persona> amigos;
 
 	initscr();
@@ -66,7 +67,24 @@ int main(int argc, char*argv[]){
 				contador=0; 	
                         	move((x/2)-3,( y/2)-17);
                         	printw("Numero del amigo: ");
-			        getstr(numero);
+			        //getstr(numero);
+                        	while((letra=getch())!='\n'){
+                        			if(contador==3){
+                        				printw("-");
+                        				temporal[contador]= letra;
+                        				contador++;
+                        				temporal[contador]='-';
+                        				contador++;
+                        			}else{
+                        				temporal[contador] = letra;
+                        				contador++;
+                        			}
+                        	}
+                             contador=0;
+                        	while(contador<9){
+                        		numero[contador]=temporal[contador];
+                        		contador++;
+                        	}
 				attroff(COLOR_PAIR(3));
 				contador = 0;
 				persona person(nombre, numero);
@@ -76,8 +94,9 @@ int main(int argc, char*argv[]){
 					contador++;
 				}
 				contador=0;
-				while(contador<9){
+				while(contador<10){
                                         numero[contador] = '\0';
+                                        temporal[contador]='\0';
                                         contador++;
                                 }
                                 contador=0;
