@@ -1,8 +1,12 @@
 #include <ncurses.h>
+#include "persona.h"
+
 
 int main(int argc, char*argv[]){
 	bool seguir = true;
 	int x, y;
+	char nombre[25]; 
+	char numero[9];
 	char opcion;
 
 	initscr();
@@ -12,7 +16,9 @@ int main(int argc, char*argv[]){
 	move((x/2)+1,( y/2)-16);
 	printw("Laboratorio 5 de Programacion3");
 	
+
 	while(seguir){
+		
 		if(getch()){
 			clear();
 			start_color();
@@ -31,18 +37,41 @@ int main(int argc, char*argv[]){
                 	printw("Ingrese una opcion: ");
 			opcion = getch();
 			attroff(COLOR_PAIR(1));
-		
-			if(opcion=='3'){
+			
+			if(opcion=='1'){
+                        	clear();
+                        	move((x/2)-4,( y/2)-16);
+                        	printw("Nombre del Amigo: ");
+                        	getstr(nombre);
+                        	move((x/2)-3,( y/2)-16);
+                        	printw("Numero del amigo: ");
+				getstr(numero);
+				persona person(nombre, numero);
+			}else if(opcion=='3'){
 				clear();
 				refresh();
 				endwin();
 				seguir = false;
+			}else if(opcion=='2'){
+				clear();
+
 			}else{
 				move((x/2)-1,( y/2)+4);
 				
 			}
 		}
+		
 	}
+
 			
 	return 0;
 }
+
+
+
+
+
+
+
+
+

@@ -3,11 +3,11 @@
 
 class persona{ 
 		char* nombre;
-		int edad;
+		char* numero;
 	public: 	
-		persona(char*, int);
+		persona(char*, char*);
 		char* getNombre();
-		int getEdad();
+		char* getNumero();
 };
 
 #endif
