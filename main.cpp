@@ -53,6 +53,7 @@ int main(int argc, char*argv[]){
                         	printw("Nombre del Amigo: ");
 				
                       		while((letra = getch())!='\n'){	
+                      			echo();
 					if(((letra>=65)&&(letra<=90)) ||((letra>=97)&&(letra<=122)) ){
 						nombre[contador] = letra;
 						contador++;
