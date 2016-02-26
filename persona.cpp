@@ -6,3 +6,11 @@ persona::persona(char* nombre, int edad){
 	strcpy(this->nombre, nombre);	
 	this->edad = edad;
 }
+
+char* persona::getNombre(){
+	return nombre;
+}
+
+int persona::getEdad(){
+	return edad;
+}
