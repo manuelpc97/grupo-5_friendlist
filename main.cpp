@@ -1,6 +1,8 @@
 #include <ncurses.h>
 #include "persona.h"
+#include <vector>
 
+using namespace std;
 
 int main(int argc, char*argv[]){
 	bool seguir = true;
@@ -8,6 +10,7 @@ int main(int argc, char*argv[]){
 	char nombre[25]; 
 	char numero[9];
 	char opcion;
+	vector<persona> amigos;
 
 	initscr();
 	getmaxyx(stdscr, x, y);
@@ -45,8 +48,9 @@ int main(int argc, char*argv[]){
                         	getstr(nombre);
                         	move((x/2)-3,( y/2)-16);
                         	printw("Numero del amigo: ");
-				getstr(numero);
-				persona person(nombre, numero);
+							getstr(numero);
+							persona person(nombre, numero);
+							amigos.push_back(person);
 			}else if(opcion=='3'){
 				clear();
 				refresh();
