@@ -58,6 +58,20 @@ int main(int argc, char*argv[]){
 				seguir = false;
 			}else if(opcion=='2'){
 				clear();
+				move(y,(x/2)-10);
+				printw("Nombre ");
+				move(y,(x/2)+10);
+				printw("Numero ");
+				printw("\n");
+
+			    for(int i = 0; i < amigos.size(); i++){
+			    	move(y+1+i,(x/2)-10);
+				    printw(amigos[i].getNombre());
+				    printw(" ");
+				    move(y+1+i,(x/2)+10);
+				    printw(amigos[i].getNumero());
+				    printw("\n");
+			    }
 
 			}else{
 				move((x/2)-1,( y/2)+4);
