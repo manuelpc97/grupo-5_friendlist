@@ -69,6 +69,8 @@ int main(int argc, char*argv[]){
                         	printw("Numero del amigo: ");
 			        //getstr(numero);
                         	while((letra=getch())!='\n'){
+                        		echo();
+                        		if(((letra>=48)&&(letra<=57))){
                         			if(contador==3){
                         				printw("-");
                         				temporal[contador]= letra;
@@ -79,6 +81,9 @@ int main(int argc, char*argv[]){
                         				temporal[contador] = letra;
                         				contador++;
                         			}
+                        		}else{
+                        			noecho();
+                        		}
                         	}
                              contador=0;
                         	while(contador<9){
